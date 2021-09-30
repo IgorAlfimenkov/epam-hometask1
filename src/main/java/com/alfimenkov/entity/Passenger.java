@@ -4,7 +4,7 @@ public class Passenger extends Airplane {
 
     private int capacity;
 
-    public Passenger(String type, String name, double distance, double consumption, int capacity) {
+    public Passenger(String name, double distance, double consumption, int capacity) {
         super("passenger", name, distance, consumption);
         this.capacity = capacity;
     }

@@ -4,8 +4,8 @@ public class Cargo extends Airplane {
 
     private double carryingCapacity;
 
-    public Cargo(String type, String name, double distance, double consumption, double carryingCapacity) {
-        super(type, name, distance, consumption);
+    public Cargo(String name, double distance, double consumption, double carryingCapacity) {
+        super("cargo", name, distance, consumption);
         this.carryingCapacity = carryingCapacity;
     }
 
