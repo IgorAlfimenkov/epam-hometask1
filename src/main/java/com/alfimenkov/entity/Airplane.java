@@ -1,5 +1,18 @@
 package com.alfimenkov.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type",
+        visible = true)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Passenger.class, name = "passenger"),
+        @JsonSubTypes.Type(value = Cargo.class, name = "cargo")
+})
+
 public abstract class Airplane implements Comparable<Airplane>{
 
     private String type;

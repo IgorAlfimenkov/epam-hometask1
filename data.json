@@ -1,0 +1,25 @@
+[ {
+  "type" : "passenger",
+  "name" : "WWW",
+  "distance" : 1000.0,
+  "consumption" : 7.0,
+  "capacity" : 670
+}, {
+  "type" : "passenger",
+  "name" : "BBB",
+  "distance" : 100.0,
+  "consumption" : 8.0,
+  "capacity" : 330
+}, {
+  "type" : "cargo",
+  "name" : "CCC",
+  "distance" : 200000.0,
+  "consumption" : 5.6,
+  "carryingCapacity" : 4000.0
+}, {
+  "type" : "cargo",
+  "name" : "CCC2",
+  "distance" : 2000.0,
+  "consumption" : 4.4,
+  "carryingCapacity" : 40800.0
+} ]
