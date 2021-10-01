@@ -1,6 +1,7 @@
 package com.alfimenkov.service;
 
 import com.alfimenkov.dao.AirLineDao;
+import com.alfimenkov.dao.Database;
 import com.alfimenkov.entity.Airplane;
 
 import java.util.List;
@@ -32,5 +33,15 @@ public class Service implements IService {
     @Override
     public List<Airplane> getAll() {
         return airLineDao.getAll();
+    }
+
+    @Override
+    public void addPlane(Airplane airplane) {
+        airLineDao.addPlane(airplane);
+    }
+
+    @Override
+    public void saveToFile() {
+        airLineDao.saveToFile();
     }
 }

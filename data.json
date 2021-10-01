@@ -22,4 +22,10 @@
   "distance" : 2000.0,
   "consumption" : 4.4,
   "carryingCapacity" : 40800.0
+}, {
+  "type" : "cargo",
+  "name" : "Plane",
+  "distance" : 200000.0,
+  "consumption" : 5.6,
+  "carryingCapacity" : 40.0
 } ]
