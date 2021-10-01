@@ -54,4 +54,16 @@ public class AirLineDao implements IAirlineDao {
     public List<Airplane> getAll() {
         return db.getPlanes();
     }
+
+    @Override
+    public void addPlane(Airplane airplane) {
+
+        db.add(airplane);
+    }
+
+    @Override
+    public void saveToFile() {
+
+        db.save();
+    }
 }
