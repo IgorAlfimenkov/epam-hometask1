@@ -1,6 +1,7 @@
 package com.alfimenkov.entity;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Airline {
 

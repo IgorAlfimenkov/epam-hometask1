@@ -1,5 +1,7 @@
 package com.alfimenkov.entity;
 
+import java.util.Objects;
+
 public class Cargo extends Airplane {
 
     private double carryingCapacity;

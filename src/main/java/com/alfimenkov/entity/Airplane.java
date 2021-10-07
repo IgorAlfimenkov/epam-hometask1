@@ -3,6 +3,8 @@ package com.alfimenkov.entity;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import java.util.Objects;
+
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -58,6 +60,8 @@ public abstract class Airplane implements Comparable<Airplane>{
     public void setConsumption(double consumption) {
         this.consumption = consumption;
     }
+
+
 
     @Override
     public String toString() {
