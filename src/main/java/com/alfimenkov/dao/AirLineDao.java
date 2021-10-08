@@ -3,6 +3,7 @@ package com.alfimenkov.dao;
 import com.alfimenkov.entity.Airplane;
 import com.alfimenkov.entity.Cargo;
 import com.alfimenkov.entity.Passenger;
+import org.jetbrains.annotations.VisibleForTesting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,17 @@ import java.util.stream.Collectors;
 
 public class AirLineDao implements IAirlineDao {
 
-    static Database db = Database.getInstance();
+    private Database db;
+
+    public AirLineDao() {
+
+        this.db = Database.getInstance();
+    }
+
+    @VisibleForTesting
+    public AirLineDao (Database database) {
+        this.db = database;
+    }
 
     @Override
     public int getTotalCapacity() {
@@ -36,7 +47,7 @@ public class AirLineDao implements IAirlineDao {
     }
 
     @Override
-    public List<Airplane> sortPlanesByDistance() {
+    public ArrayList<Airplane> sortPlanesByDistance() {
 
         return db.getPlanes().stream().
                 sorted(Airplane::compareTo).
@@ -44,7 +55,7 @@ public class AirLineDao implements IAirlineDao {
     }
 
     @Override
-    public List<Airplane> getPlanesByConsumptionRange(double boundA, double boundB) {
+    public ArrayList<Airplane> getPlanesByConsumptionRange(double boundA, double boundB) {
         return db.getPlanes().stream().
                 filter(x -> x.getConsumption() > boundA && x.getConsumption() < boundB).
                 collect(Collectors.toCollection(ArrayList::new));

@@ -1,5 +1,7 @@
 package com.alfimenkov.entity;
 
+import java.util.Objects;
+
 public class Passenger extends Airplane {
 
     private int capacity;
@@ -20,7 +22,7 @@ public class Passenger extends Airplane {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-
+    
     @Override
     public String toString() {
         return "Passenger{" +

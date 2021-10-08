@@ -14,13 +14,13 @@ public class Database {
     public Database() {
 
         this.filename = "data.json";
-        airline = JsonLoader.readFromJson(filename);
+        airline = Loader.readFromJson(filename);
     }
 
     public Database(String filename) {
 
         this.filename = filename;
-        airline = JsonLoader.readFromJson(filename);
+        airline = Loader.readFromJson(filename);
     }
 
 
@@ -33,9 +33,13 @@ public class Database {
         return airline.getAirplanes();
     }
 
+    public void setAirline(Airline airline) {
+        this.airline = airline;
+    }
+
     protected void save() {
 
-        JsonLoader.writeToJson(filename, airline);
+        Loader.writeToJson(filename, airline);
     }
 
     protected static Database getInstance() {
