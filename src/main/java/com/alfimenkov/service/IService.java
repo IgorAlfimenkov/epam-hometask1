@@ -11,4 +11,6 @@ public interface IService {
     List<Airplane> sortPlanesByDistance();
     List<Airplane> getPlanesByConsumptionRange(double boundA, double boundB);
     List<Airplane> getAll();
+    void addPlane(Airplane airplane);
+    void saveToFile();
 }
