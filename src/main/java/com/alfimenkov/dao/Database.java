@@ -50,7 +50,12 @@ public class Database {
 
     protected void add(Airplane airplane) {
 
-        getPlanes().add(airplane);
+        airline.getAirplanes().add(airplane);
+    }
+
+    protected void delete(Airplane airplane) {
+
+        airline.getAirplanes().remove(airplane);
     }
 
 }

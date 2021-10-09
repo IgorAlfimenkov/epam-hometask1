@@ -12,6 +12,8 @@ public interface IAirlineDao {
      List<Airplane> sortPlanesByDistance();
      ArrayList<Airplane> getPlanesByConsumptionRange(double boundA, double boundB);
      List<Airplane> getAll();
+     Airplane getPlaneByName(String name);
+     void deletePlane(String name);
      void addPlane(Airplane airplane);
      void saveToFile();
 }

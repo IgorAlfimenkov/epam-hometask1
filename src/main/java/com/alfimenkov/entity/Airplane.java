@@ -65,11 +65,7 @@ public abstract class Airplane implements Comparable<Airplane>{
 
     @Override
     public String toString() {
-        return "entity.Airplane{" +
-                "name='" + name + '\'' +
-                ", distance=" + distance +
-                ", consumption=" + consumption +
-                '}';
+        return "Name:" + name + "| Distance: " + distance + "| Fuel consumption: " + consumption;
     }
 
     @Override

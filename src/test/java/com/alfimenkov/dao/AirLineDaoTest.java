@@ -43,7 +43,7 @@ public class AirLineDaoTest {
     public void testTotalCarryingCapacityDao() {
 
         //GIVEN
-        when(database.getPlanes()).thenReturn(list);
+        given(database.getPlanes()).willReturn(list);
         double expected = 44800;
 
         //WHEN
@@ -56,7 +56,7 @@ public class AirLineDaoTest {
     @Test
     public void testTotalCapacityDao() {
         //GIVEN
-        when(database.getPlanes()).thenReturn(list);
+        given(database.getPlanes()).willReturn(list);
         double expected = 1000;
 
         //WHEN
@@ -72,7 +72,7 @@ public class AirLineDaoTest {
         //GIVEN
         double lowerBound = 4;
         double higherBound = 5.7;
-        when(database.getPlanes()).thenReturn(list);
+        given(database.getPlanes()).willReturn(list);
         ArrayList<Airplane> airplanes = new ArrayList<Airplane>();
         airplanes.add(list.get(2));
         airplanes.add(list.get(3));
@@ -83,4 +83,5 @@ public class AirLineDaoTest {
         //THEN
         Assertions.assertEquals(airplanes,result);
     }
+
 }
