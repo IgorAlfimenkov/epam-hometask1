@@ -7,6 +7,8 @@ import com.alfimenkov.entity.Airplane;
 import com.alfimenkov.entity.Cargo;
 import com.alfimenkov.entity.Passenger;
 import org.jetbrains.annotations.VisibleForTesting;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.List;
 public class Service implements IService {
 
     static IAirlineDao airLineDao;
+    private static final Logger LOGGER = LoggerFactory.getLogger(Service.class);
 
     public Service() {
 
@@ -28,12 +31,18 @@ public class Service implements IService {
 
     @Override
     public int getTotalCapacity() {
-        return airLineDao.getTotalCapacity();
+
+        int result = airLineDao.getTotalCapacity();
+        LOGGER.info("SERVICE: Total capacity: {}", result);
+        return result;
     }
 
     @Override
     public double getTotalCarryingCapacity() {
-        return airLineDao.getTotalCarryingCapacity();
+
+        double result = airLineDao.getTotalCarryingCapacity();
+        LOGGER.info("SERVICE: Total carrying capacity: {}", result);
+        return result;
     }
 
     @Override
@@ -43,12 +52,20 @@ public class Service implements IService {
 
     @Override
     public ArrayList<Airplane> getPlanesByConsumptionRange(double boundA, double boundB) {
-        return airLineDao.getPlanesByConsumptionRange(boundA,boundB);
+        LOGGER.info("SERVICE: Get planes by consumption (bounds: lower bound - {}, higher bound - {}): ", boundA, boundB);
+        ArrayList<Airplane> airplanes = airLineDao.getPlanesByConsumptionRange(boundA,boundB);
+        return airplanes;
     }
 
     @Override
     public List<Airplane> getAll() {
         return airLineDao.getAll();
+    }
+
+    @Override
+    public void deletePlane(String name) {
+
+        airLineDao.deletePlane(name);
     }
 
     @Override
@@ -61,23 +78,4 @@ public class Service implements IService {
         airLineDao.saveToFile();
     }
 
-    public int getTotalCapacity(Airline airline) {
-        return airline.getAirplanes().stream()
-                .filter(x -> x.getClass() == Passenger.class)
-                .reduce(0,
-                        (x, y) -> {
-                            return x + ((Passenger) y).getCapacity();
-                        },
-                        (x, y) -> x + y);
-    }
-
-    public double getTotalCarryingCapacity(Airline airline) {
-        return airline.getAirplanes().stream()
-                .filter(x -> x.getClass() == Cargo.class)
-                .reduce(0.0,
-                        (x, y) -> {
-                            return x + ((Cargo) y).getCarryingCapacity();
-                        },
-                        (x, y) -> x + y);
-    }
 }

@@ -44,12 +44,6 @@ public class ServiceTest {
         database.setAirline(airline);
     }
 
-   // @AfterEach
-    public void reset() {
-
-
-    }
-
     @Test
     public void testGetTotalCapacity() {
 

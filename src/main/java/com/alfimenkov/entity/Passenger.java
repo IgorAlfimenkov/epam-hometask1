@@ -22,11 +22,9 @@ public class Passenger extends Airplane {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-    
+
     @Override
     public String toString() {
-        return "Passenger{" +
-                "capacity=" + capacity +
-                '}';
+        return super.toString() + "| Capacity: " + capacity + "\n";
     }
 }
